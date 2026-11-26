@@ -1,0 +1,67 @@
+---
+layout: base.njk
+title: Research
+bodyClass: research
+permalink: /research/
+scripts: ["/assets/js/tabs.js", "/assets/js/index-preview.js"]
+---
+<nav class="tabs" role="tablist">
+  <a href="#experience" role="tab" data-tab="experience" aria-selected="true">Experience</a>
+  <a href="#publications" role="tab" data-tab="publications">Publications</a>
+  <a href="#projects" role="tab" data-tab="projects">Projects</a>
+</nav>
+
+<section class="panel" id="panel-experience" data-panel="experience">
+  {% for r in research %}
+  <article class="r-entry">
+    <dl class="specs">
+      <dt>Institution</dt><dd class="caps">{{ r.institution }}</dd>
+      <dt>Period</dt><dd>{{ r.period }}</dd>
+      {% if r.pi %}<dt>PI</dt><dd>{{ r.pi }}</dd>{% endif %}
+      {% if r.lab %}<dt>Lab</dt><dd>{% if r.lab.url %}<a href="{{ r.lab.url }}" target="_blank" rel="noopener">{{ r.lab.name }}</a>{% else %}{{ r.lab.name }}{% endif %}</dd>{% endif %}
+      {% if r.software %}<dt>Softwares</dt><dd>{{ r.software | list }}</dd>{% endif %}
+      {% for f in r.featured %}<dt>{% if loop.first %}Featured{% endif %}</dt><dd><a class="feat" href="{{ f.url }}">{{ f.label }}<span class="arr"></span></a></dd>{% endfor %}
+    </dl>
+    <div>
+      <h2>{{ r.title }}</h2>
+      <div class="text">{% for p in r.text %}<p>{{ p }}</p>{% endfor %}</div>
+      {% if r.image %}<figure>{% img r.image, page.inputPath, r.title, "photo" %}</figure>{% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</section>
+
+<section class="panel" id="panel-publications" data-panel="publications" hidden>
+  {% for p in publications %}
+  <article class="pub">
+    <div class="pub-text">
+      <p class="venue">{{ p.venue }}</p>
+      <h2>{{ p.title }}</h2>
+      <p class="citation">{{ p.authors | highlightAuthor(site.author_name) | safe }}{% if p.year %} ({{ p.year }}){% endif %}</p>
+      {% for n in p.notes %}<p class="note">{{ n }}</p>{% endfor %}
+      {% if p.doi %}<a class="doi" href="https://doi.org/{{ p.doi }}" target="_blank" rel="noopener"><span class="ul">https://doi.org/{{ p.doi }}</span><span class="arr"></span></a>{% endif %}
+      {% for l in p.links %}<a class="doi" href="{{ l.url }}" target="_blank" rel="noopener"><span class="ul">{{ l.label }}</span><span class="arr"></span></a>{% endfor %}
+    </div>
+    {% if p.image %}<figure class="pub-img">{% img p.image, page.inputPath, p.title, "photo" %}</figure>{% endif %}
+  </article>
+  {% endfor %}
+</section>
+
+<section class="panel" id="panel-projects" data-panel="projects" hidden>
+  <table class="index">
+    <thead><tr><th>No.</th><th>Title</th><th>Field</th><th class="hide-sm">Tools</th><th class="yr">Year</th></tr></thead>
+    <tbody>
+    {% for d in projects %}
+    {% set m = d | media("projects") %}
+    <tr class="row" data-preview="{% if m.cover %}{% imgUrl m.cover, m.from %}{% endif %}">
+      <td class="n">{{ loop.index | pad }}</td>
+      <td class="title"><a href="{{ m.url }}">{{ d.title }}</a></td>
+      <td>{{ d.field }}</td>
+      <td class="hide-sm">{{ d.tools | list }}</td>
+      <td class="yr">{{ d.year or "—" }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <img class="preview" id="preview" alt="">
+</section>

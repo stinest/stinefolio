@@ -1,0 +1,59 @@
+---
+layout: base.njk
+title: About
+bodyClass: about
+scripts: ["/assets/js/about.js"]
+photos:
+  top: images/about-2.jpg
+  top_alt: Justine on the lawn in front of Royce Hall
+  bottom: images/about-1.jpg
+  bottom_alt: Justine at the steps of Royce Hall, UCLA
+  top_crop: center center
+  bottom_crop: center 100%
+interests:
+  - title: Computational Science for Urban Systems
+    image: images/interest-1.jpg
+    crop: 15% center
+    text:
+      - Urban environments are intricate, dynamic systems that require sophisticated quantitative tools to understand and improve.
+      - I use scientific methods and theory to strengthen these environments, applying modeling, mapping, and computational strategies to inform sustainable planning in dense, rapidly evolving urban landscapes.
+  - title: Urban & Environmental Sustainability
+    image: images/interest-2.jpg
+    text:
+      - As global populations increasingly concentrate in cities, systems-aware urban planning is essential for addressing the causes and impacts of climate change.
+      - I study the policies and structural forces that shape sustainability efforts to understand the contradictions of development and ensure that progress is grounded in long-term impact.
+  - title: Design in Scientific Communication
+    image: images/interest-3.jpg
+    text:
+      - In our datafied world, impactful communication is necessary for turning scientific insights into meaningful action.
+      - I apply design intuition to create clear, compelling visuals that transform complex data into accessible insights, bridging technical research and public understanding through thoughtful, memorable, and effective communication.
+---
+<div class="about">
+  <div class="about-photos"><div class="collage">
+    <figure class="p-top" style="--crop: {{ photos.top_crop }}">{% img photos.top, page.inputPath, photos.top_alt, "photo" %}</figure>
+    <figure class="p-bottom" style="--crop: {{ photos.bottom_crop }}">{% img photos.bottom, page.inputPath, photos.bottom_alt, "photo" %}</figure>
+  </div></div>
+
+  <div class="about-text">
+    <div class="bio">
+      <p>JUSTINE CLARISSE LIM is a recent graduate of the University of California, Los Angeles. She holds a Bachelor of Science in <em>Computational and Systems Biology</em> with Highest Honors, along with minors in <em>Environmental Systems and Society</em> and <em>Digital Humanities</em>.</p>
+      <p>Drawing on this interdisciplinary background, she applies systems thinking to make cities more sustainable, focusing on the complex social, economic, political, and ecological dynamics that shape them. As she builds a research-driven academic career in urban planning, she aims to develop more equitable, resilient, and greener approaches to city design, for the benefit of both people and the planet.</p>
+      <a class="textlink" href="{{ site.cv }}" target="_blank" rel="noopener"><span class="u">My CV</span><span class="arr"></span></a>
+    </div>
+
+    <div class="interests-block">
+      <p class="label">Research Interests<span class="arr down"></span></p>
+      <div class="interests">
+        {% for it in interests %}
+        <figure class="interest" tabindex="0"{% if it.crop %} style="--crop: {{ it.crop }}"{% endif %}>
+          <div class="frame">
+            {% img it.image, page.inputPath, it.title, "photo" %}
+            <div class="blurb"><div class="fill"><h3>{{ it.title }}</h3>{% for para in it.text %}<p>{{ para }}</p>{% endfor %}</div></div>
+          </div>
+          <figcaption>{{ it.title }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

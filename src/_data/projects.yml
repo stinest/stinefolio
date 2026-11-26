@@ -1,0 +1,55 @@
+- folder: transit-epidemics
+  title: Epidemic Spread in Urban Transit Networks
+  field: Network Science & Epidemiological Modeling
+  tools: ["Python (NumPy, NetworkX)"]
+  year: 2026
+  question: How does the structure of a subway network shape the speed and scale of an infectious disease outbreak?
+  description: I built a stochastic simulation of pathogen transmission across alternative subway network configurations, modeling commuter movement as a second-order Markov process. Comparing these networks showed that station centrality and path redundancy are the primary drivers of how quickly and how widely an infection spreads. The model provides a framework for evaluating transit design through a public health lens in high-density cities.
+
+- folder: media-literacy
+  title: Measuring Campus Sustainability Literacy
+  field: Survey Research & Science Communication
+  tools: [Microsoft Excel, Google Workspace]
+  year: 2026
+  question: What do students understand about campus sustainability efforts, and how can that understanding be measured and improved?
+  description: With a research team, I designed a survey and led rounds of focus groups to measure what UCLA students know, and do not know, about the university's sustainability campaigns. Drawing on these findings, I developed an evidence-based recommendation toolkit for the UCLA Office of Sustainability to strengthen how its initiatives reach and engage students.
+
+- folder: koreatown-gentrification
+  title: Remnants of Gentrification in Los Angeles' Koreatown
+  field: Urban Analysis & Housing
+  tools: [R, Microsoft Excel, Tableau]
+  year: 2026
+  question: How does past gentrification continue to shape who can afford to live in Koreatown?
+  description: Using U.S. Census data, I quantified gentrification across Koreatown's neighborhoods by tracking demographic change over time. The analysis followed population turnover, the widening gap between rents and household incomes, and the yearly cost burden on renters, identifying the residents most vulnerable to displacement.
+
+- folder: singapore-coastlines
+  title: "The Expanding Red Dot: Monitoring Singapore's Coastlines"
+  field: Remote Sensing & Geospatial Analysis
+  tools: [ENVI, Google Workspace]
+  year: 2025
+  question: How has extensive land reclamation altered Singapore's coastline?
+  description: Using Landsat satellite imagery, I tracked how land reclamation has reshaped Singapore's coastline. Applying the Normalized Difference Water Index (NDWI) and band thresholding, I mapped shifts in the coastline boundary and measured the resulting land expansion, providing a basis for assessing human impact on coastal ecosystems and informing future environmental management and policy.
+
+- folder: climate-language
+  title: Rhetoric and Sentiment in Climate Journalism
+  field: Natural Language Processing
+  tools: ["Python (pandas, NLTK, BeautifulSoup)"]
+  year: 2025
+  question: How do rhetorical strategies in climate change reporting shape public perception?
+  description: I scraped and processed a corpus of articles on climate change and applied sentiment analysis to trace rhetorical patterns across them. By distinguishing language associated with factual reporting from language associated with persuasion, the project examines how the strategic use of sentiment influences how readers receive and understand climate issues.
+
+- folder: us-walkability
+  title: Walkability and Equity in the United States
+  field: Urban Systems & Data Visualization
+  tools: [R, Microsoft Excel, Tableau, TimelineJS]
+  year: 2024
+  question: How do socioeconomic factors shape access to walkable neighborhoods across the United States?
+  description: I conducted a national analysis of walkability scores alongside public health outcomes and quality-of-life indicators. Disaggregating results by demographic group, including disability status and race, the project identifies disparities in access to walkable environments and provides evidence for urban planning that prioritizes equitable access to transit infrastructure.
+
+- folder: mapping-campus-activism
+  title: Mapping On-Campus Activism
+  field: GIS & Web Development
+  tools: [JavaScript, HTML/CSS, MapLibre]
+  year: 2024
+  question: How can a participatory, map-based platform document the geography and experiences of student activism?
+  description: I developed an interactive web platform mapping the Spring 2024 student encampments at UCLA. Visitors can contribute their own accounts and explore those of others, building a public record of the encampments and a spatial understanding of how activism unfolded across campus.

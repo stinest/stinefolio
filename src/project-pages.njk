@@ -1,0 +1,11 @@
+---
+pagination:
+  data: projects
+  size: 1
+  alias: d
+permalink: "/projects/{{ d.folder }}/"
+layout: work.njk
+kind: projects
+eleventyComputed:
+  title: "{{ d.title }}"
+---

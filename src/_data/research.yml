@@ -1,0 +1,41 @@
+- institution: National University of Singapore
+  title: Urban Perception and Human Behavior in the Built Environment
+  period: Fall 2026 — Present
+  pi: Dr. Yu Qian Ang
+  lab:
+    name: City Syntax Lab
+    url: https://www.citysyntax.io/
+  image: images/research-nus.png
+  text:
+    - Working across two research projects, I study how measurable characteristics of the built environment relate to human perception and behavior, and how these relationships bear on human development and well-being.
+    - Some of my current work combines computer-vision segmentation of urban imagery with human observational data, linking features of the urban landscape to how people experience and use the spaces around them.
+  software: [Python (Hugging Face)]
+
+- institution: University of California, Los Angeles
+  title: Computational Design and Analysis of RNA Nanostructures
+  period: Fall 2023 — Spring 2026
+  pi: Dr. Jaimie Marie Stewart
+  lab:
+    name: Programmable RNA Materials Laboratory
+    url: https://www.thestewartlab.com/
+  image: images/research-ucla.jpg
+  text:
+    - This research used coarse-grained modeling and molecular dynamics simulations to study multi-stranded RNA nanostars, branched nucleic acid structures that can self-assemble into larger networks.
+    - By simulating nanostar designs and analyzing their structural behavior, I investigated how nanoscale architecture, including valency and connectivity, governs the formation and behavior of RNA condensates.
+  software: [Zsh/UNIX, Python, NUPACK, OxView, OxRNA]
+  featured:
+    - label: "Publications (iScience, ACS Chem & Bio Eng)"
+      url: /research/#publications
+
+- institution: Singapore University of Technology and Design
+  title: Complexity Science in Urban Growth Models for Emission Dynamics
+  period: Summer 2025
+  pi: Dr. Lay-Kee Ang
+  lab:
+    name: Ang Research Group
+    url: https://people.sutd.edu.sg/ricky_ang/
+  image: images/research-sutd.png
+  text:
+    - This project applied fractional calculus to extend an established integer-order urban growth model to global carbon dioxide emissions. Fractional derivatives introduce memory effects, allowing a country's past population dynamics to inform its present emission trajectory.
+    - Fitting both the fractional- and integer-order models to national emissions data, I compared their performance and examined how population dynamics shape emission patterns across countries.
+  software: [MATLAB, Microsoft Excel]

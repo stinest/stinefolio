@@ -1,0 +1,31 @@
+---
+layout: base.njk
+bodyClass: work
+scripts: ["/assets/js/fit.js", "/assets/js/lightbox.js"]
+---
+{% set isProject = kind == "projects" %}
+{% set list = projects if isProject else designs %}
+{% set nb = list | neighbours(d.folder) %}
+{% set m = d | media(kind) %}
+
+<nav class="work-nav">
+  <a href="{{ '/research/#projects' if isProject else '/portfolio/' }}">← {{ "Projects" if isProject else "Portfolio" }}</a>
+  <span class="count">{{ nb.index | pad }} / {{ nb.total | pad }}</span>
+  <span class="pn"><a href="/{{ kind }}/{{ nb.prev.folder }}/">← Prev</a><a href="/{{ kind }}/{{ nb.next.folder }}/">Next →</a></span>
+</nav>
+
+<header class="work-head">
+  <h1 class="work-title">{{ d.title }}</h1>
+  <p class="work-meta">{{ [d.category, d.field, d.tools | list, d.year] | compact | join("   ·   ") }}</p>
+  {% if d.question %}<p class="question">{{ d.question }}</p>{% endif %}
+  {% if d.description %}<div class="work-body">{% for p in d.description | paragraphs %}<p>{{ p }}</p>{% endfor %}</div>{% endif %}
+  {% if d.links %}<p class="work-links">{% for l in d.links %}<a href="{{ l.url }}" target="_blank" rel="noopener"><span class="ul">{{ l.label }}</span><span class="arr"></span></a>{% endfor %}</p>{% endif %}
+</header>
+
+<section class="fit">
+  {% if m.video %}<video src="{{ m.url }}{{ m.video }}"{% if m.cover and not m.images.length %} poster="{% imgUrl m.cover, m.from %}"{% endif %} controls muted loop playsinline preload="metadata"></video>{% endif %}
+  {% for f in m.images %}
+    {% img f, m.from, d.title + " — image " + loop.index, "full" %}
+  {% endfor %}
+</section>
+<div class="lightbox" id="lightbox"><span class="count"></span><img alt=""></div>

@@ -1,0 +1,42 @@
+---
+layout: base.njk
+title: Portfolio
+bodyClass: portfolio
+permalink: /portfolio/
+scripts: ["/assets/js/portfolio.js"]
+---
+{% set items = designs %}
+{% set cats = items | categories %}
+
+<div class="filters" id="filters">
+  <fieldset>
+    <legend>Category</legend>
+    <div class="opts">
+      <button type="button" data-value="all" aria-pressed="true"><span class="name">All<sup>{{ items.length }}</sup></span><span class="box"></span></button>
+      {% for c in cats %}
+      <button type="button" data-value="{{ c.name | slug }}" aria-pressed="false"><span class="name">{{ c.name }}<sup>{{ c.count }}</sup></span><span class="box"></span></button>
+      {% endfor %}
+    </div>
+  </fieldset>
+</div>
+
+<section class="grid" id="grid">
+  {% for d in items %}
+  {% set m = d | media("designs") %}
+  <article class="card" data-cat="{{ d.category | slug }}">
+    <a href="{{ m.url }}">
+      <div class="thumb">
+        {% if m.cover %}
+          {% img m.cover, m.from, d.title, "thumb" %}
+        {% elif m.video %}
+          <video src="{{ m.url }}{{ m.video }}" muted loop playsinline preload="metadata" data-autoplay></video>
+        {% else %}<div class="ph"></div>{% endif %}
+      </div>
+      <p class="cap">
+        <span class="t">{{ d.title }}</span>
+        <span class="k">{{ d.category }}</span>
+      </p>
+    </a>
+  </article>
+  {% endfor %}
+</section>
