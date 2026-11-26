@@ -16,7 +16,7 @@
     const ratios = items.map(ratio);
     const W = g.clientWidth;
     const footer = document.querySelector(".site-footer").offsetHeight;
-    const H = Math.max(320, innerHeight - g.getBoundingClientRect().top - footer - 24);
+    const H = Math.max(320, innerHeight - g.getBoundingClientRect().top - footer - 40);
     const fits = (h) => {
       let rows = 1, x = 0;
       for (const r of ratios) {
