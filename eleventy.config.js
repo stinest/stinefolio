@@ -1,4 +1,5 @@
 import Image from "@11ty/eleventy-img";
+import { HtmlBasePlugin } from "@11ty/eleventy";
 import { load as loadYaml } from "js-yaml";
 import path from "node:path";
 import fs from "node:fs";
@@ -61,7 +62,11 @@ function media(item, kind) {
   };
 }
 
+const PATH_PREFIX = process.env.PATH_PREFIX || "/";
+
 export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+  eleventyConfig.addGlobalData("base", PATH_PREFIX.replace(/\/$/, ""));
   eleventyConfig.addDataExtension("yaml,yml", (contents) => loadYaml(contents));
 
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
@@ -120,5 +125,6 @@ export default function (eleventyConfig) {
     dir: { input: "src", includes: "_includes", data: "_data", output: "_site" },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
+    pathPrefix: PATH_PREFIX,
   };
 }

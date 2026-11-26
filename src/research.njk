@@ -53,7 +53,7 @@ scripts: ["/assets/js/tabs.js", "/assets/js/index-preview.js"]
     <tbody>
     {% for d in projects %}
     {% set m = d | media("projects") %}
-    <tr class="row" data-preview="{% if m.cover %}{% imgUrl m.cover, m.from %}{% endif %}">
+    <tr class="row" data-preview="{% if m.cover %}{{ base }}{% imgUrl m.cover, m.from %}{% endif %}">
       <td class="n">{{ loop.index | pad }}</td>
       <td class="title"><a href="{{ m.url }}">{{ d.title }}</a></td>
       <td>{{ d.field }}</td>

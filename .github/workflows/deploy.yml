@@ -27,13 +27,18 @@ jobs:
 
       - run: npm ci
 
+      - id: pages
+        uses: actions/configure-pages@v5
+
       - uses: actions/cache@v4
         with:
           path: _site/img
-          key: img-${{ hashFiles('src/**/*.jpg', 'src/**/*.jpeg', 'src/**/*.png', 'src/**/*.webp', 'src/**/*.gif') }}
+          key: img-${{ hashFiles('src/**/*.[jJ][pP][gG]', 'src/**/*.[jJ][pP][eE][gG]', 'src/**/*.[pP][nN][gG]', 'src/**/*.webp', 'src/**/*.gif') }}
           restore-keys: img-
 
       - run: npm run build
+        env:
+          PATH_PREFIX: ${{ steps.pages.outputs.base_path }}/
 
       - uses: actions/upload-pages-artifact@v3
         with:
